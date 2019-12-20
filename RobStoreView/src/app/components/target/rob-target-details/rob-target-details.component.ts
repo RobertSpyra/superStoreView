@@ -11,8 +11,8 @@ import { TargetOperationItem } from 'src/app/models/TargetOperation';
 })
 export class RobTargetDetailsComponent implements OnInit {
 
-  private target:TargetItem;
-  private targetOperations$ : Observable<TargetOperationItem[]>;
+  public target:TargetItem;
+  public targetOperations$ : Observable<TargetOperationItem[]>;
 
   constructor(private targetService:TargetService) { 
     this.target = targetService.getSelectedTarget();
