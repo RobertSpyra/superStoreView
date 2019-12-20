@@ -1,0 +1,32 @@
+
+<div [ngStyle]="{'background-color':'white'}">
+<div fxLayoutAlign="center">
+    {{product.name}}
+</div>
+<br><br>
+<div fxLayoutAlign="center">   
+    {{"Stan   " + product.balance}}
+</div> 
+
+<div fxLayoutAlign="center" *ngIf="!getAddEditable() || !getMinusEditable()">
+    {{"Stan po operacji  " + getValue()}}
+</div>
+
+<div fxLayoutAlign="space-between">
+    <div fxLayoutAlign="left">
+        <mat-form-field>
+            <input matInput type="number" [(ngModel)]="addValue" placeholder="Podaj wartość..." autocomplete="off">
+        </mat-form-field>
+        <button mat-fab [ngStyle]="{'background-color': getAddEditable() ? 'white' : 'green'}" (click)='onAddClick()'  [disabled]='getAddEditable()'>DODAJ</button>
+    </div>
+    <div fxLayoutAlign="right">
+        <button mat-fab [ngStyle]="{'background-color': getMinusEditable() ? 'white' : 'red'}" (click)='onRemoveClick()' [disabled]='getMinusEditable()'>USUŃ</button>
+        <mat-form-field>
+            <input matInput type="number" [(ngModel)]="minusValue" placeholder="Podaj wartość..." autocomplete="off">
+        </mat-form-field>
+    
+</div>
+
+</div>
+<rob-table [historyProducts]="historyElements$"></rob-table>
+</div>

@@ -1,0 +1,19 @@
+.main{
+    display:flex;   
+    flex-direction : column; 
+    justify-content: center;
+    align-content: center;
+}
+.search{  
+   align-self: stretch; 
+}
+.list{
+    align-self: stretch;
+}
+.fill-space {
+    // This fills the remaining space, by using flexbox.
+    // Every toolbar row uses a flexbox row layout.
+    flex: 1 1 auto;
+  }
+
+

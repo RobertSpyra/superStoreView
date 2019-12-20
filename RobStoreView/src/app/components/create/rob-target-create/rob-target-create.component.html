@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+    <form [formGroup]="createTargetForm" (ngSubmit)="onSubmit()">
+        <mat-list class="list">
+            <mat-list-item class="item">
+                <mat-form-field>
+                    <input formControlName="targetName" matInput (input)="onKeyUp()"
+                     placeholder="Nazwa Produktu" autocomplete="off">
+                    <mat-error *ngIf="!createTargetForm.get('targetName').valid">
+                        Podaj nazwę conajmniej 2 znaki !
+                    </mat-error>
+                </mat-form-field>
+            </mat-list-item>
+            <mat-list-item class="item" *ngIf="warning">
+                <mat-error>{{warning}}</mat-error>
+                <br>
+            </mat-list-item>
+            
+        </mat-list>
+        <button mat-button (click)="onCancel()">Anuluj</button>
+        <button type="submit" [disabled]="!createTargetForm.valid" mat-button>Dodaj</button>
+    </form>
+</div>

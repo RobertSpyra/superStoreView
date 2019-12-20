@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+        <mat-list>
+                <mat-list-item> {{data.name}} </mat-list-item>
+                <mat-list-item> {{getValue()}} </mat-list-item>
+                <mat-list-item *ngIf="minusOper">
+                        <mat-form-field>
+                                <mat-label>Przeznaczenie</mat-label>
+                                <select [(ngModel)]='targetOper' matNativeControl required>
+                                        <option *ngFor="let target of targets | async">{{target}}</option>
+                                </select>
+                        </mat-form-field>
+                </mat-list-item>
+
+                <mat-list-item>
+                        <mat-form-field>
+                                <input type="number" matInput [(ngModel)]="balance" autocomplete="off"
+                                        placeholder="Podaj wartość" />
+                        </mat-form-field>
+                </mat-list-item>
+        </mat-list>
+</div>
+<div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Anuluj</button>
+        <button mat-button [disabled]="canSave()" (click)="onAddClick()">{{!minusOper ? 'Dodaj':'Odejmnij'}}</button>
+</div>

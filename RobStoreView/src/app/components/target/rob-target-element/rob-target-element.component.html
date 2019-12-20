@@ -1,0 +1,12 @@
+<mat-card (dblclick)="onDetailClick()">
+    <mat-card-header>
+    <mat-card-title fxLayoutAlign="center">
+        {{target.name}}
+    </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions fxLayoutAlign="center">
+            <button mat-icon-button (click)="onDetailClick()">
+                    <mat-icon>dehaze</mat-icon>
+            </button>
+    </mat-card-actions>
+</mat-card>

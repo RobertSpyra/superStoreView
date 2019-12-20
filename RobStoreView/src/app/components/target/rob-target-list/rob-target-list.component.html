@@ -1,0 +1,5 @@
+<div class="list" fxLayoutAlign="center" [ngStyle]={}>
+    <rob-target-element class="item" fxFlex="0 0 20%" [ngStyle.gt-xs]="{'margin.px': 3 }"  
+        *ngFor="let target of targets" 
+        [target]="target"></rob-target-element>
+</div>

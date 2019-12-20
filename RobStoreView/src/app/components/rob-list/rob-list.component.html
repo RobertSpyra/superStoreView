@@ -1,0 +1,13 @@
+<!-- <div class="list">
+<mat-nav-list class="item" fxFlex.xs="100%" fxFlex.sm="1 0 25%" *ngFor="let product of products">          
+        <mat-list-item fxFlex="1 0 auto" fxLayoutAlign="center center"> 
+            <rob-element [product]="product"></rob-element>
+        </mat-list-item>
+</mat-nav-list>
+</div> -->
+<div class="list" fxLayoutAlign="center" [ngStyle]={}>
+    <rob-element class="item" fxFlex="0 0 20%" [ngStyle.gt-xs]="{'margin.px': 3 }"  
+        *ngFor="let product of products" 
+        [product]="product"></rob-element>
+</div>
+

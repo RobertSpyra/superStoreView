@@ -1,0 +1,21 @@
+<mat-card (dblclick)="onDetailClick()">
+    <mat-card-header>
+    <mat-card-title>
+        {{product.name}}
+    </mat-card-title>
+    <mat-card-subtitle  [ngClass]="{'changed': isChanged}">
+        {{product.balance}}
+    </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions fxLayoutAlign="space-between">
+            <button #addButton mat-icon-button (click)="onAddClick()"  [color]="'success'" >
+                    <mat-icon>add</mat-icon>
+            </button>
+            <button #delButton mat-icon-button (click)="onDelClick()" [color]="'fail'">
+                    <mat-icon>remove</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onDetailClick()">
+                    <mat-icon>dehaze</mat-icon>
+            </button>
+    </mat-card-actions>
+</mat-card>

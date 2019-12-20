@@ -1,0 +1,40 @@
+<div >
+<div mat-dialog-content>
+    <form [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
+        <mat-list class="list">
+            <mat-list-item class="item"> 
+                <mat-form-field>
+            <input formControlName="productName" matInput (input)="onKeyUp()" 
+            placeholder="Nazwa Produktu" autocomplete="off">
+            <mat-error *ngIf="!createProductForm.get('productName').valid">
+                Podaj nazwę conajmniej 2 znaki !
+              </mat-error>
+        </mat-form-field>
+    </mat-list-item> 
+    <mat-list-item class="item"> 
+        <mat-form-field>
+            <input formControlName="balance" matInput type="number" placeholder="Stan początkowy">
+            <mat-error *ngIf="!createProductForm.get('balance').valid">
+                Podaj wartość większą od zera !
+              </mat-error>
+        </mat-form-field>
+    </mat-list-item> 
+    <mat-list-item class="item"> 
+        <mat-form-field>
+            <input formControlName="alarmValue" matInput type="number" placeholder="Próg minimlany">
+            <mat-error *ngIf="!createProductForm.get('alarmValue').valid">
+                Podaj wartość większą od zera !
+              </mat-error>
+        </mat-form-field>
+    </mat-list-item> 
+    <mat-list-item *ngIf="warning">
+        <mat-error>{{warning}}</mat-error>
+        <br>
+     </mat-list-item>
+    </mat-list>
+    <br>
+    <button  mat-button (click)="onCancel()">Anuluj</button>
+    <button type="submit" [disabled]="!createProductForm.valid" mat-button>Dodaj</button>
+    </form> 
+</div>
+</div>

@@ -1,0 +1,20 @@
+
+<table mat-table [dataSource]='dataSource' matSort class="mat-elevation-z8">
+        <!-- Name Column -->
+     
+        <ng-container matColumnDef="balance">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stan </th>
+                <td mat-cell [ngStyle]="{'background-color':element.operation === 'A' ? '#a5d6a7': '#ffccbc'}" *matCellDef="let element"> {{element.balance}} </td>
+            </ng-container>
+            <ng-container matColumnDef="balanceOperation">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Wartość zmiany </th>
+                    <td mat-cell [ngStyle]="{'background-color':element.operation === 'A' ? '#a5d6a7': '#ffccbc'}" *matCellDef="let element"> {{element.balanceOper}} </td>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>date </th>
+                        <td mat-cell [ngStyle]="{'background-color':element.operation === 'A' ? '#a5d6a7': '#ffccbc'}" 
+                        *matCellDef="let element"> {{element.date | date:'medium':'+0100':'pl'}} </td>
+                    </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
